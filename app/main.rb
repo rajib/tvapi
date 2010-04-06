@@ -17,6 +17,17 @@ configure :development do
   DataMapper::Logger.new(STDOUT, :debug)
 end
 
+configure :production do
+  DataMapper.setup(:default, {
+    :adapter  => 'mysql',
+    :host     => 'localhost',
+    :username => 'root' ,
+    :password => '',
+    :database => 'tv_production'})  
+
+  DataMapper::Logger.new(STDOUT, :debug)
+end
+
 ### MODELS
 class Channel
   include DataMapper::Resource
