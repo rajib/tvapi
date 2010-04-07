@@ -25,7 +25,7 @@ class Channel
   property :logo,     String
   property :url,      String
 end
-DataMapper.auto_upgrade!
+DataMapper.auto_migrate!
 
 
 ### CONTROLLER ACTIONS
