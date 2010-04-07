@@ -19,7 +19,7 @@ end
 ### MODELS
 class Channel
   include DataMapper::Resource
-  property :id,         Integer, :Serial=>true
+  property :id,         Integer
   property :name,      String
   property :logo,      String
   property :url,      String
