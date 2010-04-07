@@ -3,5 +3,6 @@ dm-core
 sinatra
 dm-validations
 rack
+do_mysql
 
 
