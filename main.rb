@@ -6,7 +6,7 @@ require 'dm-validations'
 
 ## CONFIGURATION
 configure :development do
-  DataMapper.setup(:default, {
+  DataMapper.setup({
     :adapter  => 'mysql',
     :host     => 'localhost',
     :username => 'root' ,
