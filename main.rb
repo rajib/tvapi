@@ -5,16 +5,7 @@ require 'dm-validations'
 
 
 ## CONFIGURATION
-configure :development do
-  DataMapper.setup(:default, {
-    :adapter  => 'mysql',
-    :host     => 'localhost',
-    :username => 'root' ,
-    :password => '',
-    :database => 'tv_development'})  
 
-  DataMapper::Logger.new(STDOUT, :debug)
-end
 
 ### MODELS
 class Channel
