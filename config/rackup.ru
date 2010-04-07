@@ -1,6 +1,6 @@
 require 'rubygems'
 require 'sinatra'
-require File.expand_path(File.dirname(__FILE__))+"/app/main"
+#require File.expand_path(File.dirname(__FILE__))+"/app/main"
 
 set :app_file, File.expand_path(File.dirname(__FILE__) + '../app/main.rb')
 set :public,   File.expand_path(File.dirname(__FILE__) + '../public')
