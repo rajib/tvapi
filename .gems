@@ -1,7 +1,7 @@
 hpricot
 dm-core --version 0.10.2
 sinatra
-dm-validations
+dm-validations --version 0.10.2
 rack
 do_mysql
 
