@@ -3,6 +3,7 @@ require 'sinatra'
 require 'dm-core'
 require 'dm-validations'
 require 'dm-serializer'
+require 'dm-migrations'
 
 ## CONFIGURATION
 configure :development do
