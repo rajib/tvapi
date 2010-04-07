@@ -2,5 +2,6 @@ hpricot
 dm-core
 sinatra
 dm-validations
+rack
 
 
