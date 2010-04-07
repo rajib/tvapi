@@ -8,6 +8,4 @@ disable :run, :reload
 
 require "../main"
 
-run Sinatra::application
-
 
