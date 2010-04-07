@@ -8,6 +8,6 @@ set :views,    File.expand_path(File.dirname(__FILE__) + '../app/views')
 set :environment,      :production
 disable :run, :reload
 
-run Sinatra::application
+run Sinatra.application
 
 
