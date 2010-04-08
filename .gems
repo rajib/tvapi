@@ -1,15 +1,1 @@
-hpricot
-sinatra --version 1.0
-rack --version 1.1.0
-do_mysql --version 0.10.1
-dm-core --version 0.10.2
-dm-validations --version 0.10.2
-dm-aggregates --version 0.10.2
-dm-constraints --version 0.10.2
-dm-migrations --version 0.10.2
-dm-serializer --version 0.10.2
-dm-timestamps --version 0.10.2
-dm-types --version 0.10.2
-sqlite3-ruby --version 1.2.5
-do_sqlite3 --version 0.10.1.1
-scrubyt --version 0.4.06
+firewatir --version 1.6.5

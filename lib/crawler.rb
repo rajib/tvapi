@@ -1,6 +1,3 @@
-require 'rubygems'
-require 'scrubyt'
-
 class Crawler
 	def	self.crawl_shows(chnl)
 		crawled_data = Scrubyt::Extractor.define do
