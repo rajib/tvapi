@@ -1,11 +1,3 @@
-require 'rubygems'
-require 'sinatra'
-require 'yaml'
-require 'dm-core'
-require 'dm-validations'
-require 'dm-serializer'
-require 'dm-migrations'
-
 ## CONFIGURATION
 configure :development do
   DataMapper.setup(:default, "sqlite3://#{Dir.pwd}/db/tv_development.sqltite3.db")
@@ -27,11 +19,17 @@ DataMapper.auto_upgrade!
 
 
 ### CONTROLLER ACTIONS
-
-# index
-get '/' do
-  @channels = Channel.all
+get "/" do
+	@channels = Channel.all
   haml :index
+end
+
+get "/get_shows/:channel" do
+	Crawler.crawl_shows(params[:channel])
+end
+
+get "/get_channels" do
+	Crawler.crawl_channel_list
 end
 
 
