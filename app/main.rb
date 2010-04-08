@@ -20,16 +20,29 @@ DataMapper.auto_upgrade!
 
 ### CONTROLLER ACTIONS
 get "/" do
-	@channels = Channel.all
   haml :index
 end
 
-get "/get_shows/:channel" do
-	Crawler.crawl_shows(params[:channel])
+get "/get_channels" do
+	@channels = Channel.all
+  @channels.to_xml
 end
 
-get "/get_channels" do
-	Crawler.crawl_channel_list
+get "/get_shows/:id" do
+	@channel = Channel.get(params[:id])
+	Crawler.crawl_shows(@channel.url)
+end
+
+get "/create_channels" do
+	attr_hash = {}
+	xml = Nokogiri::XML(Crawler.crawl_channel_list)
+	xml.xpath('./root/channel').each do |channel_node|
+		channel_node.children.each do |attr_node|
+    	attr_hash[attr_node.name] = attr_node.text
+    end
+    attr_hash.delete("text") # delete unwanted key/value fot "text"
+    Channel.create(attr_hash)
+	end
 end
 
 
