@@ -1,5 +1,6 @@
 require 'rubygems'
 require 'sinatra.rb'
+require 'rack'
 
 #set :app_file, File.expand_path(File.dirname(__FILE__) + '../main.rb')
 #set :public,   File.expand_path(File.dirname(__FILE__) + '../public')
@@ -11,4 +12,4 @@ set :run, false
 set :env, (ENV['RACK_ENV'] ? ENV['RACK_ENV'].to_sym : :production)
 
 require "../main"
-#run Sinatra::application
+run Sinatra::application
