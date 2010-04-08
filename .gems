@@ -12,3 +12,4 @@ dm-timestamps --version 0.10.2
 dm-types --version 0.10.2
 sqlite3-ruby --version 1.2.5
 do_sqlite3 --version 0.10.1.1
+scrubyt --version 0.4.06
