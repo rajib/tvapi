@@ -1,14 +1,10 @@
 require 'rubygems'
 require 'sinatra.rb'
-require "../main"
 
-#set :app_file, File.expand_path(File.dirname(__FILE__) + '../main.rb')
-#set :public,   File.expand_path(File.dirname(__FILE__) + '../public')
-#set :views,    File.expand_path(File.dirname(__FILE__) + '../app/views')
-#set :env,      :production
-#disable :run, :reload
-set :views, File.join(File.dirname(__FILE__), '../app/views')
+# Sinatra defines #set at the top level as a way to set application configuration
+set :views, File.join(File.dirname(__FILE__), 'app','views')
 set :run, false
 set :env, (ENV['RACK_ENV'] ? ENV['RACK_ENV'].to_sym : :production)
 
-run Sinatra.application
+require 'app/main'  
+run Sinatra::Application
