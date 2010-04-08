@@ -11,5 +11,4 @@ set :run, false
 set :env, (ENV['RACK_ENV'] ? ENV['RACK_ENV'].to_sym : :production)
 
 require "../main"
-run Sinatra::application
-
+#run Sinatra::application
