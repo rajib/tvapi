@@ -1,20 +1,18 @@
 require 'rubygems'
 require 'sinatra'
+require 'yaml'
 require 'dm-core'
 require 'dm-validations'
 require 'dm-serializer'
 require 'dm-migrations'
 
 ## CONFIGURATION
-configure :production do
-  DataMapper.setup(:default, {
-    :adapter  => 'mysql',
-    :host     => 'localhost',
-    :username => 'root' ,
-    :password => '',
-    :database => 'tv_production'})  
+configure :development do
+  DataMapper.setup(:default, "sqlite3://#{Dir.pwd}/db/tv_development.sqltite3.db")
+end
 
-  DataMapper::Logger.new(STDOUT, :debug)
+configure :production do
+  DataMapper.setup(:default, "sqlite3://#{Dir.pwd}/db/tv_production.sqltite3.db")
 end
 
 ### MODELS
