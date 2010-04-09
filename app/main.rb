@@ -24,25 +24,15 @@ get "/" do
 end
 
 get "/get_channels" do
-	@channels = Channel.all
-  @channels.to_xml
+	TvApi.get_channels
 end
 
 get "/get_shows/:id" do
-	@channel = Channel.get(params[:id])
-	Crawler.crawl_shows(@channel.url)
+	TvApi.get_shows(params[:id])
 end
 
-get "/create_channels" do
-	attr_hash = {}
-	xml = Nokogiri::XML(Crawler.crawl_channel_list)
-	xml.xpath('./root/channel').each do |channel_node|
-		channel_node.children.each do |attr_node|
-    	attr_hash[attr_node.name] = attr_node.text
-    end
-    attr_hash.delete("text") # delete unwanted key/value fot "text"
-    Channel.create(attr_hash)
-	end
+get "/update_channels" do
+	TvApi.update_channels
 end
 
 

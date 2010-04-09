@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>crawl_shows (Crawler)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File lib/crawler.rb, line 2</span>
+        <span class="ruby-keyword kw">def</span>    <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">crawl_shows</span>(<span class="ruby-identifier">chnl</span>)
+                <span class="ruby-identifier">crawled_data</span> = <span class="ruby-constant">Scrubyt</span><span class="ruby-operator">::</span><span class="ruby-constant">Extractor</span>.<span class="ruby-identifier">define</span> <span class="ruby-keyword kw">do</span>
+                        <span class="ruby-identifier">fetch</span> <span class="ruby-node">&quot;http://tv.burrp.com#{chnl}&quot;</span>
+        
+                        <span class="ruby-identifier">channel_name</span> <span class="ruby-value str">&quot;//tr//td[@class='channelName']&quot;</span>
+                        <span class="ruby-identifier">channel_logo</span> <span class="ruby-value str">&quot;//tr//td//a[@class='hoverfix']//img[@width='100']/@src&quot;</span>
+        
+                        <span class="ruby-identifier">programme</span> <span class="ruby-value str">&quot;//table[@class='result']&quot;</span> <span class="ruby-keyword kw">do</span>
+                                <span class="ruby-identifier">past</span> <span class="ruby-value str">&quot;//tr&quot;</span> <span class="ruby-keyword kw">do</span>
+                                        <span class="ruby-identifier">time</span> <span class="ruby-value str">&quot;//td[@class='resultTime resultPast']&quot;</span>
+                                        <span class="ruby-identifier">show</span> <span class="ruby-value str">&quot;//td[@class='resultTitle resultPast']//a[@class='title']&quot;</span>                            
+                                <span class="ruby-keyword kw">end</span>
+                                <span class="ruby-identifier">playing_now</span> <span class="ruby-value str">&quot;//tr&quot;</span> <span class="ruby-keyword kw">do</span>
+                                        <span class="ruby-identifier">time</span> <span class="ruby-value str">&quot;//td[@class='resultTime resultCurrent']&quot;</span>
+                                        <span class="ruby-identifier">show</span> <span class="ruby-value str">&quot;//td[@class='resultTitle resultCurrent']//a[@class='title']&quot;</span>
+                                <span class="ruby-keyword kw">end</span>
+                                <span class="ruby-identifier">comming_up</span> <span class="ruby-value str">&quot;//tr&quot;</span> <span class="ruby-keyword kw">do</span>
+                                        <span class="ruby-identifier">time</span> <span class="ruby-value str">&quot;//td[@class='resultTime']&quot;</span>
+                                        <span class="ruby-identifier">show</span> <span class="ruby-value str">&quot;//td[@class='resultTitle']&quot;</span>
+                                <span class="ruby-keyword kw">end</span>  
+                        <span class="ruby-keyword kw">end</span>
+                <span class="ruby-keyword kw">end</span>
+                <span class="ruby-keyword kw">return</span> <span class="ruby-identifier">crawled_data</span>.<span class="ruby-identifier">to_xml</span>
+        <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>
